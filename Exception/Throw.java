@@ -21,10 +21,11 @@ public class Throw {
                     throw new Exception("A senha deve conter no MÍNIMO 8 caracteres");
 
                 }
-                loginOk = false;
+               loginOk = false;
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null,e.getMessage(),"Senha",0);
             }
+             
         }
     }
 }
