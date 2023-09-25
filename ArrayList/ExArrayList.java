@@ -13,8 +13,8 @@ public class ExArrayList {
     // metodo
     // este metodo cria um novo vetor com mais uma posição, e irá copiar o vetor
     // anterior, sempre que mencionado
-    public void add (int add) {
-        
+    public void add (int add) {    
+
         for (int i = 0; i < vetor1.length; i++) {
             vetor2[i] = vetor1[i];
         }
