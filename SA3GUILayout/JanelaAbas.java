@@ -2,7 +2,7 @@ package SA3GUILayout;
 
 import javax.swing.JTabbedPane;
 
-public class JanelaAbas extends JTabbedPane{
+public class JanelaAbas     {
     public JanelaAbas() {
         super();
         //add calculadora as abas
