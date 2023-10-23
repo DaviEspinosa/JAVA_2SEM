@@ -6,7 +6,7 @@ public class ExemploFlowLayout {
       super();
       JFrame janela1 = new JFrame();
       FlowLayout flow = new FlowLayout();
-      janela1.setLayout(flow);
+      janela1.setLayout((LayoutManager) flow);
       JLabel texto1 = new JLabel("Informe o número de botões");
       JTextField painel1 = new JTextField("Insira o número de colunas");
       JButton botao1 = new JButton("Enviar");
