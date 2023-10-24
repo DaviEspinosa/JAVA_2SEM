@@ -8,6 +8,7 @@ public class TryCatchFinally {
 
     String fraseInicial = null;
     String fraseFinal = null;
+    
     fraseInicial = JOptionPane.showInputDialog("Digite uma frase");
     
     if(fraseInicial.equals("")) {

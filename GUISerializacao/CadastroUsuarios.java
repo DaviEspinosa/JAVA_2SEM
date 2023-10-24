@@ -19,7 +19,7 @@ import java.io.File;
 import java.awt.BorderLayout;
 import java.awt.Color;
 
-public class CadastroUsuarios extends JFrame {
+public class CadastroUsuarios extends JPanel {
 
     private JTextField inputNome;
     private JTextField inputIdade;
@@ -29,10 +29,7 @@ public class CadastroUsuarios extends JFrame {
     private int linhaSelecionada = -1;
 
     public CadastroUsuarios() {
-        setTitle("Cadastro Usuário");
-        setSize(600, 300);
-        setDefaultCloseOperation(2);
-        setLocationRelativeTo(null);
+
 
         tableModel = new DefaultTableModel();
         tableModel.addColumn("nome");
@@ -68,7 +65,7 @@ public class CadastroUsuarios extends JFrame {
         inputPanel.add(agendarButton);
 
         // add ao layout
-        setLayout(new BorderLayout());
+        this.setLayout(new BorderLayout());
         add(inputPanel, BorderLayout.NORTH);
         add(scrollPane, BorderLayout.CENTER);
 
@@ -138,7 +135,4 @@ public class CadastroUsuarios extends JFrame {
         }
     }
 
-    public void run(){
-        this.setVisible(true);
-    }
 }
