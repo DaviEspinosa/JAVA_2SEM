@@ -1,0 +1,5 @@
+Connection Factory abre e fecha conexão
+
+Connection DAO
+
+Polimorfismo de métodos - Pode criar varios métodos com mesmo nome, com parametros diferentes
