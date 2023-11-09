@@ -15,7 +15,7 @@ public class ConnectionDAO {
     }
 
     public void criaTabela() {
-        String sql = "CREATE TABLE IF NOT EXISTS NOME_TABELA (ID SERIAL PRIMARY KEY, NOME VARCHAR (255), EMAIL VARCHAR (255))";
+        String sql = "CREATE TABLE IF NOT EXISTS MINHA_TABELA (ID SERIAL PRIMARY KEY, NOME VARCHAR (255), EMAIL VARCHAR (255))";
 
         try (Statement stmt = connection.createStatement()) {// Statement é o tradutor do banco de dados para java
             stmt.execute(sql);
