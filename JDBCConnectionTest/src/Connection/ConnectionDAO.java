@@ -1,6 +1,7 @@
 package Connection;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.SQLException;
 
@@ -39,8 +40,21 @@ public class ConnectionDAO {
         }
     }
 
-        public void inserir(String nome, String email){
-            String sql = "";
+    public void inserir(String nome, String email) throws SQLException {
+        String sql = "SELECT * FROM MINHA_TABELA (NOME, EMAIL) VALUES (?,?)";// CRIA O CÓDIGO
+        PreparedStatement stmt = connection.prepareStatement(sql);
+
+        try {
+            stmt.setString(1, nome);
+            stmt.setString(2, email);
+            stmt.execute();
+            System.out.println("Dados inseridos com sucesso!");
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao inserir dados ao banco.", e);
+        } finally {
+            ConnectionFactory.closeConnection(this.connection);
+
         }
+    }
 
 }

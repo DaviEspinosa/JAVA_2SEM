@@ -12,5 +12,8 @@ public class JanelaP extends JFrame{
         this.setDefaultCloseOperation(2);
         this.setVisible(true);
     }
+
+    // private void add(JanelaAbas janelaAbas) {
+    // }
     
 }
