@@ -1,5 +1,48 @@
 Connection Factory abre e fecha conexão
 
-Connection DAO
+Connection DAO - 
+    traduz o java para o SQL ele pode tambem estabelecer conexões  
 
-Polimorfismo de métodos - Pode criar varios métodos com mesmo nome, com parametros diferentes
+Polimorfismo de métodos -           
+    Pode criar varios métodos com mesmo nome com parametros diferentes
+
+Colocar as denpencias no pom.xml para rodar o banco de dados
+
+<dependencies>
+    <dependency>
+        <groupId>...</groupId>
+        <artifactId>...</artifactId>
+        <version>...</version>
+    </dependencies>
+</dependency>
+
+table.addMouseListener(new MouseAdapter(){
+    @Override
+    public void mouseClicked(MouseEvent evt){
+        linhaSelecionada = table.rowAtPoint(evt.getPoint());
+        if (linhaSelecionada != -1){
+            carMarcaField.setText((String)table.getValueAt(linhaSelecionada,0));
+            carModeloField.setText((String)table.getValueAt(linhaSelecionada,1));
+            carAnoField.setText((String)table.getValueAt(linhaSelecionada,2));
+            carPlacaField.setText((String)table.getValueAt(linhaSelecionada,3));
+            carValorField.setText((String)table.getValueAt(linhaSelecionada,4));
+        }
+    }
+})
+
+
+
+CarrosControl operacoes = new CarrosControl
+
+cadastrar.addActionListener(e->{
+    operacoes.cadastrar(carMarcaField.getText(),carModeloField.getText(),carAnoField.getText(),carPlacaField.getText(),carValorField.getText(),)
+
+    //limpar os campos de entrada
+    carMarcaField.setText("");
+    carModeloField.setText("");
+    carAnoField.setText("");
+    carPlacaField.setText("");
+    carValorField.setText("");
+})
+
+=====Fazer um Tratamento de erros=====
