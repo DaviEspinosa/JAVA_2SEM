@@ -10,8 +10,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import Controller.CarrosDAO;
+import Controller.ClienteControl;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 
 import Model.Carros;
  
@@ -61,5 +67,27 @@ public class JanelaCarros extends JPanel {
                 new String[] { "Marca", "Modelo", "Ano", "Placa", "Valor" });
         table = new JTable(tableModel);
         jSPane.setViewportView(table);
+        new CarrosDAO().criaTabela();
+
+        ClienteControl operacoes = new ClienteControl();
+
+        // BOTAO DE CADASTRAR
+        cadastrar.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e){
+
+            
+            operacoes.cadastrar(carMarcaField.getText(), carModeloField.getText(), carAnoField.getText(), carPlacaField.getText());
+
+            // limpar os campos de entrada
+            carMarcaField.setText("");
+            carModeloField.setText("");
+            carAnoField.setText("");
+            carPlacaField.setText("");
+            carValorField.setText("");
+            }
+        });
+
     }
 }

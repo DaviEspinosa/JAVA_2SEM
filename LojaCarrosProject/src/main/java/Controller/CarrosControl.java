@@ -15,7 +15,7 @@ public class CarrosControl {
 
     private void atualizarTabela(){//este metodo serve para adicionar os itens na tabela
         tableModel.setRowCount(0); //função do table model para limpar a tabela
-        carros = new CarrosClientesDAO().listarTodos();
+        carros = new CarrosDAO().listarTodos();
         
         for (  Carros carro :carros ) {
             tableModel.addRow(new Object[]{carro.getMarca(), carro.getModelo(),carro.getAno(),carro.getPlaca(),carro.getValor()});
@@ -24,13 +24,13 @@ public class CarrosControl {
 
 //metodo cadastrar
     public void cadastrar (String marca, String modelo, String ano, String placa,String valor){
-        new CarrosClientesDAO().cadastrar(marca,modelo,ano,placa,valor);
+        new CarrosDAO().cadastrar(marca,modelo,ano,placa,valor);
         atualizarTabela();
     }
 
     //metodo apagar
     public void apagar (String placa){
-        new CarrosClientesDAO().apagar(placa);
+        new CarrosDAO().apagar(placa);
         atualizarTabela();
     }
 

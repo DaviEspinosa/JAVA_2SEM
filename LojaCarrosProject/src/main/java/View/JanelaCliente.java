@@ -13,14 +13,15 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import Controller.ClienteControl;
+import Model.Cliente;
 
 public class JanelaCliente extends JPanel {
 
     // atributos
     JButton cadastrar, cancelar;
-    private JTextField clientNome, clientEndereco, clientNumero, clientCPF;
-    // private List <Cliente> cliente;
-    private JTable table; // qual a diferença entre este
+
+    private List <Cliente> cliente;
+    private JTable table;                  // qual a diferença entre este
     private DefaultTableModel tableModel; // e este
     private int linhaselecionada = -1;
 
@@ -54,29 +55,42 @@ public class JanelaCliente extends JPanel {
         entradas.add(labelCPF);
         entradas.add(inputCPF);
 
-   
         panelBtn.add(cadastrar = new JButton("Cadastrar"));
         panelBtn.add(cancelar = new JButton("Cancelar"));
 
         add(entradas);
         add(panelBtn);
-                
-        
-        
-        
-    
-    ClienteControl operacoes = new ClienteControl();
 
-    cancelar.addActionListener(e->{
-    operacoes.cancelar(inputNome.getText(),inputEndereco.getText(),inputNumero.getText(),inputCPF.getText());
+        JScrollPane jSPane = new JScrollPane();
+        add(jSPane);
+        tableModel = new DefaultTableModel(new Object[][] {},
+                new String[] { "Nome", "Endereço", "Número", "CPF"});
+        table = new JTable(tableModel);
+        jSPane.setViewportView(table);
 
-    //limpar os campos de entrada
-    inputNome.setText("");
-    inputEndereco.setText("");
-    inputNumero.setText("");
-    inputCPF.setText("");
-});
+        ClienteControl operacoes = new ClienteControl();
 
-     
+        // BOTAO DE CADASTRAR
+        cadastrar.addActionListener(e -> {
+            operacoes.cadastrar(inputNome.getText(), inputEndereco.getText(), inputNumero.getText(), inputCPF.getText());
+
+            // limpar os campos de entrada
+            inputNome.setText("");
+            inputEndereco.setText("");
+            inputNumero.setText("");
+            inputCPF.setText("");
+        });
+
+        // BOTAO DE CANCELAR
+        cancelar.addActionListener(e -> {
+            operacoes.cancelar(inputNome.getText(), inputEndereco.getText(), inputNumero.getText(), inputCPF.getText());
+
+            // limpar os campos de entrada
+            inputNome.setText("");
+            inputEndereco.setText("");
+            inputNumero.setText("");
+            inputCPF.setText("");
+        });
+
     }
 }
