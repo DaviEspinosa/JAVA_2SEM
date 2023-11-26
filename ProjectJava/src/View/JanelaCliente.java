@@ -2,6 +2,8 @@ package View;
 
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -67,10 +69,13 @@ public class JanelaCliente extends JPanel {
         table = new JTable(tableModel);
         jSPane.setViewportView(table);
 
-        ClienteControl operacoes = new ClienteControl();
+        ClienteControl operacoes = new ClienteControl(tableModel);
 
         // BOTAO DE CADASTRAR
-        cadastrar.addActionListener(e -> {
+        cadastrar.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e){
             operacoes.cadastrar(inputNome.getText(), inputEndereco.getText(), inputNumero.getText(), inputCPF.getText());
 
             // limpar os campos de entrada
@@ -78,7 +83,7 @@ public class JanelaCliente extends JPanel {
             inputEndereco.setText("");
             inputNumero.setText("");
             inputCPF.setText("");
-        });
+        }});
 
         // BOTAO DE CANCELAR
         cancelar.addActionListener(e -> {

@@ -1,44 +1,62 @@
 package Controller;
 
-import java.util.List;
-
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import java.util.List;
 
 import Model.Carros;
+import Controller.CarrosDAO;
 
 public class CarrosControl {
-    //atributos
-    private List <Carros> carros; //Lista os carros
-    private DefaultTableModel tableModel;
-    private JTable table; //os dados serão exibidos aqui 
+    private List<Carros> carros;
+    private DefaultTableModel tableModel; //intermediario entre Bd e lista visivel
+    private JTable table;
 
-    private void atualizarTabela(){//este metodo serve para adicionar os itens na tabela
-        tableModel.setRowCount(0); //função do table model para limpar a tabela
-        carros = new CarrosDAO().listarTodos();
-        
-        for (  Carros carro :carros ) {
-            tableModel.addRow(new Object[]{carro.getMarca(), carro.getModelo(),carro.getAno(),carro.getPlaca(),carro.getValor()});
-        } 
+    // Construtor que recebe o tableModel
+    public CarrosControl(DefaultTableModel tableModel) {
+        this.tableModel = tableModel;
     }
 
-//metodo cadastrar
-    public void cadastrar (String marca, String modelo, String ano, String placa,String valor){
-        //chamando cadastrar para ver se os controles estão inicializando
-        System.out.println("Chamando 'cadastrar' ");
-        new CarrosDAO().cadastrar(marca,modelo,ano,placa,valor);
+    //Método atualizar Tabela
+    private void atualizarTabela() {
+
+        //Iniciar o tableModel
+        if (tableModel != null) {
+            // Ao iniciar as linhas existentes irão sumir 
+            tableModel.setRowCount(0);
+            // puxa a lista de Carros do BD
+            carros = new CarrosDAO().listarTodos();
+
+            // ele vai colocar no TableModel os carros que estão no banco de dados
+            for (Carros carro : carros) {
+                tableModel.addRow(new Object[] { carro.getMarca(), carro.getModelo(), carro.getAno(), carro.getPlaca(),
+                        carro.getValor() });
+            }
+        }
+        //Se tableModel não foi iniciado ele exibira uma menssagem 
+        else {
+            System.out.println("tableModel não inicializado. Certifique-se de passá-lo ao construtor.");
+        }
+    }
+
+    // Método cadastrar
+    public void cadastrar(String marca, String modelo, String ano, String placa, String valor) {
+        //chamando o metodo cadastrar no banco de dados
+        new CarrosDAO().cadastrar(marca, modelo, ano, placa, valor);
+        // Atualizar tabela 
         atualizarTabela();
     }
 
-    //metodo apagar
-    public void apagar (String placa){
+    // Método apagar
+    public void apagar(String placa) {
+        // chamando o metodo apagar no bd 
         new CarrosDAO().apagar(placa);
         atualizarTabela();
     }
 
-    //metodo Aualizar pela Placa
-    public void atualizar(String marca, String modelo, String ano, String placa,String valor){
+    // Método para atualizar pela Placa
+    public void atualizar(String marca, String modelo, String ano, String placa, String valor) {
 
+        atualizarTabela();
     }
-    
 }

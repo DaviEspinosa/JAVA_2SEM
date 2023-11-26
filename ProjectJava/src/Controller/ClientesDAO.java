@@ -18,6 +18,11 @@ public class ClientesDAO {
     private List<Cliente> clientes;
     private Connection connection;
 
+        // construtor
+        public ClientesDAO() {
+            this.connection = ConnectionFactory.getConnection();
+        }
+
     // criar Tabela
     public void criaTabela() {
         
@@ -86,6 +91,7 @@ public class ClientesDAO {
         stmt.executeUpdate();
         System.out.println("Dados inseridos com sucesso");
     } catch (Exception e) {
+        e.printStackTrace();//printa tods as exeções que estão ocorrendo em meu código
         throw new RuntimeException(e + "Erro ao inserir dados ao Banco de dados");
     }finally{
         ConnectionFactory.closeConnection(connection,stmt);

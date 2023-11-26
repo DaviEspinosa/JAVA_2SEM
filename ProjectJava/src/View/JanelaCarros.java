@@ -68,7 +68,7 @@ public class JanelaCarros extends JPanel {
         jSPane.setViewportView(table);
         new CarrosDAO().criaTabela();
 
-        CarrosControl operacoes = new CarrosControl();
+        CarrosControl operacoes = new CarrosControl(tableModel);
 
         // BOTAO DE CADASTRAR
         cadastrar.addActionListener(new ActionListener() {
@@ -77,7 +77,6 @@ public class JanelaCarros extends JPanel {
             public void actionPerformed(ActionEvent e){
             operacoes.cadastrar(carMarcaField.getText(), carModeloField.getText(), carAnoField.getText(), carPlacaField.getText(), carValorField.getText());
             
-
             // limpar os campos de entrada
             carMarcaField.setText("");
             carModeloField.setText("");
