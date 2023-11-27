@@ -15,12 +15,13 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import Controller.ClienteControl;
+import Controller.ClientesDAO;
 import Model.Cliente;
 
 public class JanelaCliente extends JPanel {
 
     // atributos
-    JButton cadastrar, cancelar;
+    JButton cadastrar, cancelar, apagar;
 
     private List <Cliente> cliente;
     private JTable table;                  // qual a diferença entre este
@@ -59,15 +60,18 @@ public class JanelaCliente extends JPanel {
 
         panelBtn.add(cadastrar = new JButton("Cadastrar"));
         panelBtn.add(cancelar = new JButton("Cancelar"));
-
+        panelBtn.add(apagar = new JButton("Apagar"));
         add(entradas);
         add(panelBtn);
 
+        
         JScrollPane jSPane = new JScrollPane();
         add(jSPane);
+        //Adicionando a tabelModel a minha tabel para mostrar o cadastro cliente
         tableModel = new DefaultTableModel(new Object[][] {}, new String[] { "Nome", "Endereço", "Número", "CPF"});
         table = new JTable(tableModel);
         jSPane.setViewportView(table);
+        new ClientesDAO().criaTabela();
 
         ClienteControl operacoes = new ClienteControl(tableModel);
 
@@ -95,6 +99,8 @@ public class JanelaCliente extends JPanel {
             inputNumero.setText("");
             inputCPF.setText("");
         });
+
+
 
     }
 }

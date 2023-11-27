@@ -130,7 +130,7 @@ public class CarrosDAO {
         try {
             stmt = connection.prepareStatement(sql);
             stmt.setString(1, placa);
-            stmt.executeUpdate(); // Executa a instrução SQL
+            stmt.executeUpdate(); 
             System.out.println("Dado apagado com sucesso");
            
         } catch (SQLException e) {

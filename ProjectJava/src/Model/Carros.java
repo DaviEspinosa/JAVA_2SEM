@@ -19,6 +19,9 @@ public class Carros {
         this.valor = valor;
     }
 
+    public Carros() {
+    }
+
     //getters and setters
     public String getMarca() {
         return marca;
