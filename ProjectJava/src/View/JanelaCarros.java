@@ -92,7 +92,7 @@ public class JanelaCarros extends JPanel {
                 operacoes.cadastrar(carMarcaField.getText(), carModeloField.getText(), carAnoField.getText(),
                         carPlacaField.getText(), carValorField.getText());
 
-                        JOptionPane.showMessageDialog(null, "Cadastro Aprovado!!!");
+                JOptionPane.showMessageDialog(null, "Cadastro Aprovado!!!");
 
                 // limpar os campos de entrada
                 carMarcaField.setText("");
@@ -101,7 +101,6 @@ public class JanelaCarros extends JPanel {
                 carPlacaField.setText("");
                 carValorField.setText("");
 
-                
             }
         });
 
@@ -117,18 +116,14 @@ public class JanelaCarros extends JPanel {
                 String placa = new Carros().getPlaca();
                 int placas = Integer.parseInt(placa);
 
+                if (nPlacaDigitado == placas) {
+                    new CarrosControl(tableModel).apagar(placa);
+                    JOptionPane.showMessageDialog(null, "Carro removido da Lista");
 
-                    if (nPlacaDigitado == placas) {
-                        new CarrosControl(tableModel).apagar(placa);
-                        JOptionPane.showMessageDialog(null, "Carro removido da Lista");
-                        
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null,"Carros não encontrado, Por favor digite novamente...");
-                    
-                    }    
+                } else {
+                    JOptionPane.showMessageDialog(null, "Carros não encontrado, Por favor digite novamente...");
 
-                
+                }
 
             }
         });

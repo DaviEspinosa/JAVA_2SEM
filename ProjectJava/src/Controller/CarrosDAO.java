@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import Connection.ConnectionFactory;
 import Model.Carros;
 
@@ -122,23 +124,37 @@ public class CarrosDAO {
         }
     }
 
-    // Apagar dados do banco
+     /* Apagar dados do banco */
+
     public void apagar(String placa) {
+        String message = "Deseja realmente deletar esse carro?";
         PreparedStatement stmt = null;
-        // Define a instrução para apagar dados pela placa
-        String sql = "DELETE FROM carros_lojacarros WHERE placa = ?";
+    
+        String sqlApagarPelaPlaca = "DELETE FROM tabela_carros WHERE placa = ?";
+    
         try {
-            stmt = connection.prepareStatement(sql);
-            stmt.setString(1, placa);
-            stmt.executeUpdate(); 
-            System.out.println("Dado apagado com sucesso");
-           
+            // Verifica se a conexão está aberta
+            if (!connection.isClosed()) {
+                int escolhaJO = JOptionPane.showConfirmDialog(null, message);
+                if (escolhaJO == JOptionPane.YES_OPTION) {
+                    stmt = connection.prepareStatement(sqlApagarPelaPlaca);
+                    stmt.setString(1, placa);
+                    stmt.executeUpdate();
+                } else if (escolhaJO == JOptionPane.NO_OPTION) {
+                    JOptionPane.showMessageDialog(null, "Operação de exclusão cancelada pelo usuário.");
+                    System.out.println("Operação de exclusão cancelada pelo usuário.");
+                } else {
+                    System.out.println("Nenhum registro encontrado com a placa especificada.");
+                }
+            }
         } catch (SQLException e) {
-            throw new RuntimeException("Erro ao apagar dados no banco de dados.", e);
+            throw new RuntimeException("Erro ao deletar pela placa", e);
         } finally {
             ConnectionFactory.closeConnection(connection, stmt);
         }
     }
+    
+
+}
 
    
-}
