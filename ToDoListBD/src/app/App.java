@@ -1,6 +1,5 @@
 package app;
 
-
 import View.JanelaTarefas;
 
 public class App {
