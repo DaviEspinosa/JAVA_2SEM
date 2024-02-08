@@ -78,7 +78,6 @@ public class JanelaTarefas extends JFrame {
         // Painel de Listas
         painelTarefas = new JPanel(new BorderLayout());
         painelTarefas.add(new JScrollPane(tarefas), BorderLayout.CENTER);
-        painelTarefas.add(tarefas);
         painelTarefas.setPreferredSize(new Dimension(700, 260));
 
 
@@ -88,10 +87,12 @@ public class JanelaTarefas extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                String descricao =  searchBox.getText();
+                String descricao =  searchBox.getText().trim();//.trim() remove os espaços do começo e do final da frase
+                System.out.println("Tarefa Enviada");
                 searchBox.setText("");
                 
                 controller.adicionarTarefa(descricao);
+                
             }
             
         });

@@ -1,18 +1,18 @@
 package Model;
 public class Tarefas {
     // atributos 
-    private String nome ;
+    private String descricao ;
     private boolean done;
 
-    public Tarefas(String nome, boolean done) {
-        this.nome = nome;
+    public Tarefas(String descricao, boolean done) {
+        this.descricao = descricao;
         this.done = false;
     }
-    public String getNome() {
-        return nome;
+    public String getDescricao() {
+        return descricao;
     }
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
     public boolean isDone() {
         return done;
