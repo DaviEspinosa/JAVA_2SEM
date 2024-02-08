@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +25,7 @@ import Controller.AcaoBtn;
 
 public class JanelaTarefas extends JFrame {
 
-
+    private AcaoBtn controller;
 
 
 
@@ -78,6 +80,22 @@ public class JanelaTarefas extends JFrame {
         painelTarefas.add(new JScrollPane(tarefas), BorderLayout.CENTER);
         painelTarefas.add(tarefas);
         painelTarefas.setPreferredSize(new Dimension(700, 260));
+
+
+        controller = new AcaoBtn(tableModel);
+        // ações para os botões
+        addTask.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String descricao =  searchBox.getText();
+                searchBox.setText("");
+                
+                controller.adicionarTarefa(descricao);
+            }
+            
+        });
+
 
         this.add(painelBtn);
         this.add(painelAdicionar);
