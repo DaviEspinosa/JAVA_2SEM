@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assine nossa Newsletter</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+    <h2>Assine nossa Newsletter</h2>
+    <p>Receba as últimas notícias e atualizações diretamente em sua caixa de entrada.</p>
+    <span th:text="${msg}"></span><br>
+    <form id="newsletterForm">
+        <!-- Nome -->
+        <label for="name">Nome:</label>
+        <input type="name" id="name" name="name" required>
+        <!-- E-mail -->
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+        <!-- Telefone -->
+        <label for="tel">Telefone:</label>
+        <input type="number" id="number" name="number" required>
+        <!-- Telefone -->
+        <label for="tel">Cpf:</label>
+        <input type="number" id="number" name="number" required>
+        <button type="submit">Assinar</button>
+    </form>
+
+</body>
+<script>
+    document.getElementById('newsletterForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Aqui você pode adicionar o código para enviar o e-mail para o servidor ou realizar outras ações.
+
+        alert('Obrigado por assinar nossa Newsletter!');
+        document.getElementById('email').value = '';
+    });
+</script>
+</html>
