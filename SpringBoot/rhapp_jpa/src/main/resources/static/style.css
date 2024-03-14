@@ -1,0 +1,36 @@
+body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.container-form{
+    width: 35%;
+    height: 100%;
+    padding: 20px;
+    background-color: rgb(68, 14, 184);
+    color: aliceblue;
+    border-radius: 10px;
+}
+
+
+/* Tabela  */
+.container-form .tr{
+    color: aliceblue;
+}
+.container-form tr td {
+background-color: aliceblue;
+}
+.container-form tr td span{
+    color: rgb(68, 14, 184);
+}
