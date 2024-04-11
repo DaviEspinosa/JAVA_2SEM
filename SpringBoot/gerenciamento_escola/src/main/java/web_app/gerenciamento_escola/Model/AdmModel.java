@@ -6,8 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-// Obrigatóriamente implemento a classe Serializable (serve para transformar esta classe em arquivo binário)
-public class AdmModel implements Serializable {
+public class AdmModel implements Serializable {// Obrigatóriamente implemento a classe Serializable (serve para transformar esta classe em arquivo binário)
     
     // atributos
     @Id //esta dizendo que o cpf será primary key no banco de dados
