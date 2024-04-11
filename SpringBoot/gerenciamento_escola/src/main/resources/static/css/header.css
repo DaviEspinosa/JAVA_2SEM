@@ -1,7 +1,4 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
+
 
 header {
     background-color: #333;
@@ -11,19 +8,20 @@ header {
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    height: 100px;
+    height: 20%;
 }
 h1{
     margin: 0;
 }
 nav{
-    width: 55%;
+    width: 80%;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 nav ul {
+    width: 100%;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -36,7 +34,7 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    padding: 10px 30px;
+
 }
 nav ul li a:hover {
     background-color: #4b3880;
