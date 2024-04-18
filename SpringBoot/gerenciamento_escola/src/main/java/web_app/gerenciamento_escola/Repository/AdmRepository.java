@@ -14,4 +14,5 @@ public interface AdmRepository extends CrudRepository<AdmModel, String> {
     AdmModel findByCpf(String cpf);
     AdmModel findBySenha(String senha);
     AdmModel findByEmail(String email);
+    //...
 }
