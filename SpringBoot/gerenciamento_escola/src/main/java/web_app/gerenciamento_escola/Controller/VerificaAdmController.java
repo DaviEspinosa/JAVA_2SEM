@@ -10,6 +10,9 @@ import web_app.gerenciamento_escola.Repository.VerificacaoAdmRepository;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.fasterxml.jackson.databind.introspect.TypeResolutionContext.Empty;
+
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -54,10 +57,23 @@ public class VerificaAdmController {
     }
 
     @PostMapping("loginAdm")
-    public ModelAndView loginAdm() {
+    public ModelAndView loginAdm(AdmModel adm, RedirectAttributes attributes) {
         
         ModelAndView mv = new ModelAndView("redirect: /interna-adm");
+        boolean verificaEmail = admRepository.existsById(adm.getEmail());
+        boolean verificaSenha = admRepository.existsById(adm.getSenha());
 
+        if (!adm.getEmail().isEmpty() && !adm.getSenha().isEmpty()) {
+            if ( verificaSenha && verificaEmail) {
+                mv.setViewName("redirect:interna-adm");
+            }
+            else{
+                
+            }
+        }
+        else{
+            String mensagem = "Por favor preencha os campo";
+        }
         
         return mv;
     }
