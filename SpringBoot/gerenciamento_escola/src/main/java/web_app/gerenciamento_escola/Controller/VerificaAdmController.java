@@ -53,6 +53,16 @@ public class VerificaAdmController {
         return mv;
     }
 
+    @PostMapping("loginAdm")
+    public ModelAndView loginAdm() {
+        
+        ModelAndView mv = new ModelAndView("redirect: /interna-adm");
+
+        
+        return mv;
+    }
+    
+
     //Pré-Cadastro do adm
     @PostMapping("preCad")
     public ModelAndView precadAdm(VerificacaoAdmModel autadm, RedirectAttributes attributes) {
