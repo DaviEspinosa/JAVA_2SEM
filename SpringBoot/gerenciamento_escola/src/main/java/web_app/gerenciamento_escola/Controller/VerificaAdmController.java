@@ -4,11 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import web_app.gerenciamento_escola.Model.AdmModel;
+import web_app.gerenciamento_escola.Model.VerificacaoAdmModel;
 import web_app.gerenciamento_escola.Repository.AdmRepository;
 import web_app.gerenciamento_escola.Repository.VerificacaoAdmRepository;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @Controller
@@ -49,6 +52,20 @@ public class VerificaAdmController {
 
         return mv;
     }
-    
 
+    //Pré-Cadastro do adm
+    @PostMapping("preCad")
+    public ModelAndView precadAdm(VerificacaoAdmModel autadm, RedirectAttributes attributes) {
+
+        ModelAndView mv = new ModelAndView("redirect:/pre-cadastro");
+
+            verificaAdmRepository.save(autadm);
+            String mensagem = "Cadastro realizado com sucesso";
+            System.out.println(mensagem);
+            attributes.addFlashAttribute(mensagem);
+            attributes.addFlashAttribute("classe", "Vermelho");
+
+        return mv;
+    }
 }
+    
