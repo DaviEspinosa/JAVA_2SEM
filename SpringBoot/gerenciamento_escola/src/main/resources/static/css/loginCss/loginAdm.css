@@ -75,3 +75,12 @@ button:hover{
     color: green;
     border-radius: 2px;
 }
+
+@media (max-width:700px) {
+    .left{
+        display: none;
+    }
+    .right{
+        width: 100%;
+    }
+}
