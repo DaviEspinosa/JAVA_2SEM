@@ -37,7 +37,7 @@ public class VerificaAdmController {
         // Verificando entrada de Cpf
         boolean verificaCpf = verificaAdmRepository.existsById(adm.getCpf());
         // redirecionando para Login do Adm
-        ModelAndView mv = new ModelAndView("redirect:/login-adm");
+        ModelAndView mv = new ModelAndView("redirect:login-adm");
         
 
         if (verificaCpf) {

@@ -22,6 +22,10 @@ public class IndexController {
     public String acessoPagePreCadAdm() {
         return "cadastro/pre-cadastro";
     }
+    @GetMapping("/login-adm")
+    public String acessoPageLoginAdm() {
+        return "login/login-adm";
+    }
     
     
 

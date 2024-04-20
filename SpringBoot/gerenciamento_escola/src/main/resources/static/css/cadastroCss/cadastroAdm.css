@@ -20,7 +20,7 @@ form{
     height: 290px;
     background-image: url('../../img/verde.jpg');
     background-size: cover;
-    z-index: -2;
+    z-index: 0;
     border-radius: 15px;
     display: flex;
     flex-direction: column;

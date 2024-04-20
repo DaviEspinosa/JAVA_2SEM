@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{css/loginCss/loginAdm.css}">
+    <link rel="stylesheet" th:href="@{css/header.css}">
+</head>
+
+<body>
+
+    <div th:insert=" ~{fragmentos/header :: header}" class="pai-header"></div>
+
+    <div class="container">
+        <form action="loginAdm" method="post">
+
+            <div class="left"></div>
+
+            <div class="right">
+                <h3>Login Administrador</h3>
+
+                <div class="container-inputs">
+
+                    <input type="text" name="email" placeholder="E-mail">
+                    <input type="password" name="senha" placeholder="Sua Senha">
+
+                </div>
+                <button type="submit" name="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
