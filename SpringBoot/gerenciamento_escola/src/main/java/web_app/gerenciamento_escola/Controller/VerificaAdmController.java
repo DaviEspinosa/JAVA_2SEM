@@ -36,11 +36,13 @@ public class VerificaAdmController {
 
         // Verificando entrada de Cpf
         boolean verificaCpf = verificaAdmRepository.existsById(adm.getCpf());
+        //Verificando se existe senha
+        boolean verificaSenha = verificaAdmRepository.existsById(adm.getSenha());
         // redirecionando para Login do Adm
         ModelAndView mv = new ModelAndView("redirect:login-adm");
         
 
-        if (verificaCpf) {
+        if (verificaCpf && verificaSenha    ) {
             admRepository.save(adm);
             String mensagem = "Cadastro realiado com sucesso";
             System.out.println(mensagem);
