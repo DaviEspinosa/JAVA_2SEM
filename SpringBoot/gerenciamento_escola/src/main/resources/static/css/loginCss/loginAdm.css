@@ -23,12 +23,26 @@ form{
     align-items: center;
     box-shadow: 2px 5px 59px -39px black;
 }
+.overlay {
+    border-radius: 15px;
+    position: fixed;
+    width: 40%;
+    height: 62%;
+    background-color: rgba(0, 0, 0, 0.671); 
+    z-index: -1; 
+}
 .left{
     width: 50%;
     height: 100%;
     box-shadow: 6px 4px 23px 1px #535353;
     background-image: url("../../img/verde2.jpg");
     background-size: cover;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    z-index: 0;
 }
 .right{
     width: 50%;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,30 +8,40 @@
     <link rel="stylesheet" th:href="@{css/cadastroCss/cadastroAdm.css}">
     <link rel="stylesheet" th:href="@{css/header.css}">
 </head>
+
 <body>
     <div th:insert=" ~{fragmentos/header :: header}" class="pai-header"></div>
 
     <div class="container">
         <form action="cadastrar-adm" method="post">
-            <div class="overlay"></div>
+
             
-            <h3>Cadastro Do Administrador</h3>
+            <div class="left">
+                
+                <h3>Cadastro Do Administrador</h3>
 
-            <div class="container-inputs">
+                <div class="container-inputs">
 
-                <input type="text" name="nome" placeholder="Seu Nome">
-
-                <input type="text" name="cpf" placeholder="Seu CPF">
-
-                <input type="email" name="email" placeholder="Seu E-mail">
-
-                <input type="password" placeholder="Sua Senha">
-
-                <input type="password" name="senha" placeholder="Confirme sua Senha" style="width: 95%;">
-
+                    <input type="text" name="nome" placeholder="Seu Nome">
+                    <input type="text" name="cpf" placeholder="Seu CPF">
+                    <input type="email" name="email" placeholder="Seu E-mail">
+                    <input type="password" placeholder="Sua Senha">
+                    <input type="password" name="senha" placeholder="Confirme sua Senha" style="width: 95%;">
+                    
+                </div>
+                <button type="submit" name="submit">Enviar</button>
             </div>
-            <button type="submit" name="submit">Enviar</button>
+
+            <div class="right">
+                <div class="overlay"></div>
+                <span>Já está Cadastro?</span>
+                <a href="/login-adm">
+                    Logar
+                </a>
+            </div>
+
         </form>
     </div>
 </body>
+
 </html>

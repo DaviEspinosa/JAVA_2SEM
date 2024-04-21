@@ -16,29 +16,48 @@ html, body{
     color: aliceblue;
 }
 form{
-    width: 470px;
-    height: 290px;
-    background-image: url('../../img/verde.jpg');
-    background-size: cover;
-    z-index: 0;
-    border-radius: 15px;
+    width: 80%;
+    height: 400px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    box-shadow: 2px 5px 59px -39px black;
 }
 .overlay {
     border-radius: 15px;
     position: fixed;
-    width: 470px;
-    height: 290px;
-    background-color: rgba(0, 0, 0, 0.822); 
+    width: 40%;
+    height: 62%;
+    background-color: rgba(0, 0, 0, 0.671); 
     z-index: -1; 
+}
+.right{
+    width: 50%;
+    height: 100%;
+    box-shadow: 6px 4px 23px 1px #535353;
+    background-image: url("../../img/verde.jpg");
+    background-size: cover;
+    border-radius: 10px;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+.left{
+    width: 50%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 h3{
     margin: 0px;
     padding: 10px 0px 0px 10px;
     height: 30px;
+    color: green;
 }
 .container-inputs{
     display: flex;
@@ -48,18 +67,48 @@ h3{
     height: 60%;
 }
 .container-inputs input{
-    height: 30px;
+    height: 60px;
     width: 45%;
     border: none;
     border-bottom: solid 2px rgb(18, 128, 67);
-    border-radius: 5px;
+
+}
+.container-inputs input:focus{
+    outline: none;
+    background-color: rgba(181, 255, 181, 0.527);
+    transition: 1s;
+}
+.right a{
+    font-size: large;
+    color: aliceblue;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 button{
-    background-color:rgb(32, 175, 96) ;
-    color: white;
-    width: 90%;
-    padding: 5px;
-    border: solid 2px green;
-    margin-bottom: 10px;
+    padding: 10px 20% 10px 20%;
+    background-color: green;
+    border: solid 1px green;
+    color: aliceblue;
+    border-radius: 10px;
+    transition: .5s;
+}
+button:hover{
+    transition: .5s;
+    padding: 10px 25% 10px 25%;
+    background-color: rgb(255, 255, 255);
+    color: green;
+    border-radius: 2px;
 }
 
+@media (max-width:700px) {
+    .right{
+        display: none;
+    }
+    .left{
+        width: 100%;
+    }
+}
+span{
+    font-size: 70%;
+}
