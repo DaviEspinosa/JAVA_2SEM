@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xlmns:th="http://thymeleaf.org/">
 
 <head>
     <meta charset="UTF-8">
@@ -15,17 +15,18 @@
 
     <div class="container">
         <form action="loginAdm" method="post">
-
+            
             <div class="left">
                 <div class="overlay"></div>
                 <span>Welcome Back !</span>
             </div>
-
+            
             <div class="right">
                 <h3>Login Administrador</h3>
-
+                
                 <div class="container-inputs">
-
+                    <p class="mensagem" th:text="${mensagem}"></p>
+                    
                     <input type="text" name="email" placeholder="E-mail">
                     <input type="password" name="senha" placeholder="Sua Senha">
 

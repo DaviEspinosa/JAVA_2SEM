@@ -98,3 +98,15 @@ button:hover{
         width: 100%;
     }
 }
+span{
+    font-size: 60%;
+}
+
+
+/* ====Mensagem==== */
+.mensagem{
+    z-index: 100;
+    color: #c90000;
+    margin: 0%;
+    font-size: smaller;
+}

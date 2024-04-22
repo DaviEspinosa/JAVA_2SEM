@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.fasterxml.jackson.databind.introspect.TypeResolutionContext.Empty;
-
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 
@@ -37,14 +34,14 @@ public class VerificaAdmController {
         // Verificando entrada de Cpf
         boolean verificaCpf = verificaAdmRepository.existsById(adm.getCpf());
         //Verificando se existe senha
-        boolean verificaSenha = verificaAdmRepository.existsById(adm.getSenha());
+        boolean verificaSenha = verificaAdmRepository.existsBySenha(adm.getSenha());
         // redirecionando para Login do Adm
         ModelAndView mv = new ModelAndView("redirect:login-adm");
         
 
-        if (verificaCpf && verificaSenha    ) {
+        if (verificaCpf && verificaSenha) {
             admRepository.save(adm);
-            String mensagem = "Cadastro realiado com sucesso";
+            String mensagem = "Cadastro realiado com sucessoooooooooooo";
             System.out.println(mensagem);
             attributes.addFlashAttribute(mensagem);
             attributes.addFlashAttribute("classe", "Vermelho");
@@ -70,11 +67,13 @@ public class VerificaAdmController {
                 mv.setViewName("redirect:interna-adm");
             }
             else{
-                
+                mv.setViewName("redirect:login-adm");
+                attributes.addFlashAttribute("mensagem","Usuário ou Senha Incorretos");
             }
         }
         else{
-            String mensagem = "Por favor preencha os campo";
+            mv.setViewName("redirect:login-adm");
+            attributes.addFlashAttribute("mensagem","Preencha Todos os Campos Corretamente");
         }
         
         return mv;
