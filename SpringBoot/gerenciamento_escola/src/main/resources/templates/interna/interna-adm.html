@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{css/internaCss/internaAdm.css}">
+    <link rel="stylesheet" th:href="@{css/header.css}">
+</head>
+
+<body>
+    <div th:insert=" ~{fragmentos/header :: header}" class="pai-header"></div>
+
+    <div class="container">
+
+        <a href="/cadastro-aluno"><button>Cadastrar Aluno</button></a>
+        <a href="/cadastro-professor"><button>Cadastrar Professor</button></a>
+
+        </form>
+    </div>
+</body>
+
+</html>

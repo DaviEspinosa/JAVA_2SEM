@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" th:href="@{css/cadastroCss/cadastroAdm.css}">
+    <link rel="stylesheet" th:href="@{css/cadastroCss/cadastroAluno.css}">
     <link rel="stylesheet" th:href="@{css/header.css}">
 </head>
 
@@ -13,18 +13,20 @@
     <div th:insert=" ~{fragmentos/header :: header}" class="pai-header"></div>
 
     <div class="container">
-        <form action="cadastrar-adm" method="post">
+        <form action="cadastrar-aluno" method="post">
 
             
             <div class="left">
                 
-                <h3>Cadastro Do Administrador</h3>
+                <h3>Cadastro Do Aluno</h3>
 
                 <div class="container-inputs">
 
                     <input type="text" name="nome" placeholder="Seu Nome">
-                    <input type="text" name="cpf" placeholder="Seu CPF">
-                    <input type="email" name="email" placeholder="Seu E-mail">
+                    <input type="text" name="ra" placeholder="RA">
+                    <input type="date" name="dataNas" placeholder="Data de Nascimento">
+                    <input type="text" name="disciplina" placeholder="Disciplina">
+                    <input type="text" name="turma" placeholder="Turma">
                     <input type="password" placeholder="Sua Senha">
                     <input type="password" name="senha" placeholder="Confirme sua Senha" style="width: 95%;">
                     
@@ -33,11 +35,7 @@
             </div>
 
             <div class="right">
-                <div class="overlay"></div>
-                <span>Já está Cadastrado?</span>
-                <a href="/login-adm">
-                    Logar
-                </a>
+
             </div>
 
         </form>

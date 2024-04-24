@@ -11,13 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
-
-
 @Controller
 public class VerificaAdmController {
 
-    // atributoss
+    // atributos
     boolean acessoInternoNavegacaoAdm = false;
 
 
@@ -32,7 +29,7 @@ public class VerificaAdmController {
     public ModelAndView cadastroAdm(AdmModel adm, RedirectAttributes attributes) {
 
         // Verificando entrada de Cpf
-        boolean verificaCpf = verificaAdmRepository.existsById(adm.getCpf());
+        boolean verificaCpf = verificaAdmRepository.existsByCpf(adm.getCpf());
         //Verificando se existe senha
         boolean verificaSenha = verificaAdmRepository.existsBySenha(adm.getSenha());
         // redirecionando para Login do Adm
@@ -58,12 +55,12 @@ public class VerificaAdmController {
     @PostMapping("loginAdm")
     public ModelAndView loginAdm(AdmModel adm, RedirectAttributes attributes) {
         
-        ModelAndView mv = new ModelAndView("redirect: /interna-adm");
-        boolean verificaEmail = admRepository.existsById(adm.getEmail());
-        boolean verificaSenha = admRepository.existsById(adm.getSenha());
+        ModelAndView mv = new ModelAndView("redirect:interna-adm");
+        boolean verificaEmail = admRepository.existsByEmail(adm.getEmail());
+        boolean verificaSenha = admRepository.existsBySenha(adm.getSenha());
 
         if (!adm.getEmail().isEmpty() && !adm.getSenha().isEmpty()) {
-            if ( verificaSenha && verificaEmail) {
+            if ( verificaEmail && verificaSenha) {
                 mv.setViewName("redirect:interna-adm");
             }
             else{
