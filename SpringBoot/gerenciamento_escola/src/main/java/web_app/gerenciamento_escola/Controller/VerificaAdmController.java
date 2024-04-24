@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import web_app.gerenciamento_escola.Model.AdmModel;
 import web_app.gerenciamento_escola.Model.VerificacaoAdmModel;
 import web_app.gerenciamento_escola.Repository.AdmRepository;
-import web_app.gerenciamento_escola.Repository.VerificacaoAdmRepository;
+import web_app.gerenciamento_escola.Repository.VerificacaoRepository;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -21,7 +21,7 @@ public class VerificaAdmController {
     @Autowired
     private AdmRepository admRepository;
     @Autowired
-    private VerificacaoAdmRepository  verificaAdmRepository;
+    private VerificacaoRepository  verificaAdmRepository;
 
     //métodos
     // "cadastrar-adm" é o nome que se da lá no action do meu form (html)

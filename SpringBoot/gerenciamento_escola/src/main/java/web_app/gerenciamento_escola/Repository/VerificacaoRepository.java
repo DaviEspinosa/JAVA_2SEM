@@ -7,13 +7,18 @@ import web_app.gerenciamento_escola.Model.VerificacaoAdmModel;
 
 
 
-public interface VerificacaoAdmRepository extends CrudRepository<VerificacaoAdmModel, String>{
+public interface VerificacaoRepository extends CrudRepository<VerificacaoAdmModel, String>{
     
     //Pegando os atributos do Model para fazer a verificação
+    //======ADM===========
     VerificacaoAdmModel findByCpf(String cpf);
     VerificacaoAdmModel findBySenha(String senha);
 
     boolean existsByCpf(String cpf);
     boolean existsBySenha(String senha);
+    //====================
+    //======Aluno=========
+    
+    //====================
 
 }
