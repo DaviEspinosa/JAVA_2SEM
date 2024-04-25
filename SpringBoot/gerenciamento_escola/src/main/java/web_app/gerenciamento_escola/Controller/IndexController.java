@@ -46,7 +46,10 @@ public class IndexController {
         return "login/loginAP";
     }
 
-    
-    
+
+    @GetMapping("/interna-professor")
+    public String acessoPageInternaProfessor() {
+        return "interna/interna-professor";
+    }
 
 }

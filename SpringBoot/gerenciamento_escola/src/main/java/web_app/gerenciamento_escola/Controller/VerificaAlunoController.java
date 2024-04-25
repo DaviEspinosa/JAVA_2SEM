@@ -8,6 +8,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import web_app.gerenciamento_escola.Model.AlunoModel;
 import web_app.gerenciamento_escola.Repository.AlunoRepository;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
 
 @Controller
 public class VerificaAlunoController {
@@ -32,4 +36,11 @@ public class VerificaAlunoController {
 
         return mv;
     }
+
+    @PostMapping("listar-alunos")    
+    public String listaAlunos(AlunoModel aluno, RedirectAttributes attributes) {
+        attributes.addFlashAttribute("alunos", alunoRepository.findAll());
+        return "lista-alunos";
+    }
+    
 }

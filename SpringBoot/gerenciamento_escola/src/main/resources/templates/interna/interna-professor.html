@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{css/internaCss/internaProfessor.css}">
+    <link rel="stylesheet" th:href="@{css/header.css}">
+</head>
+
+<body>
+    <div th:insert=" ~{fragmentos/header :: header}" class="pai-header"></div>
+
+    <div class="container">
+
+        <h1>Lista de Alunos</h1>
+        <form action="listar-alunos" method="post">
+            <ul>
+                <li th:each="aluno : ${alunos}">
+                    <span th:text="${aluno.nome}"></span> - <span th:text="${aluno.disciplina}"></span>
+                </li>
+            </ul>
+        </form>
+    </div>
+</body>
+
+</html>
