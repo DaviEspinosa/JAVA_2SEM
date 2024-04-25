@@ -10,11 +10,11 @@ public class ProfessorModel implements Serializable{
     //atributos
     @Id
     String cpf;
-    String nome;
-    String email;
+    String professor;
+    String disciplina;
     String senha;
     String tel;
-    String endereco;
+    String turma;
 
     //metodos
     public String getCpf() {
@@ -23,35 +23,40 @@ public class ProfessorModel implements Serializable{
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    public String getNome() {
-        return nome;
+
+    public String getProfessor() {
+        return professor;
     }
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setProfessor(String professor) {
+        this.professor = professor;
     }
-    public String getEmail() {
-        return email;
+
+    public String getDisciplina() {
+        return disciplina;
     }
-    public void setEmail(String email) {
-        this.email = email;
+    public void setDisciplina(String disciplina) {
+        this.disciplina = disciplina;
     }
-    public String getSenha() {
-        return senha;
-    }
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+
     public String getTel() {
         return tel;
     }
     public void setTel(String tel) {
         this.tel = tel;
     }
-    public String getEndereco() {
-        return endereco;
+
+    public String getSenha() {
+        return senha;
     }
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
+    public String getTurma() {
+        return turma;
+    }
+    public void setTurma(String turma) {
+        this.turma = turma;
     }
     
 }

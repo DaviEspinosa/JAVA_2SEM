@@ -10,7 +10,7 @@ public class AlunoModel implements Serializable{
     //atributos
     @Id
     String ra;
-    String nome;
+    String aluno;
     String dataNascimento;
     String disciplina;
     String turma;
@@ -23,11 +23,11 @@ public class AlunoModel implements Serializable{
     public void setRa(String ra) {
         this.ra = ra;
     }
-    public String getNome() {
-        return nome;
+    public String getAluno() {
+        return aluno;
     }
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setAluno(String aluno) {
+        this.aluno = aluno;
     }
     public String getDataNascimento() {
         return dataNascimento;

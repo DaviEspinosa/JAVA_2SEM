@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{css/cadastroCss/cadastroProfessor.css}">
+    <link rel="stylesheet" th:href="@{css/header.css}">
+</head>
+
+<body>
+    <div th:insert=" ~{fragmentos/header :: header}" class="pai-header"></div>
+
+    <div class="container">
+        <form action="cadastrar-professor" method="post">
+
+            
+            <div class="content">
+                
+                <h3>Cadastro Do Professor</h3>
+
+                <div class="container-inputs">
+
+                    <input type="text" name="nome" placeholder="Seu Nome">
+                    <input type="text" name="cpf" placeholder="CPF">
+                    <input type="date" name="tel" placeholder="Telefone">
+                    <input type="text" name="disciplina" placeholder="Disciplina">
+                    <input type="text" name="turma" placeholder="Turma">
+                    <input type="password" placeholder="Sua Senha">
+                    <input type="password" name="senha" placeholder="Confirme sua Senha" style="width: 95%;">
+                    
+                </div>
+                <button type="submit" name="submit">Enviar</button>
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>

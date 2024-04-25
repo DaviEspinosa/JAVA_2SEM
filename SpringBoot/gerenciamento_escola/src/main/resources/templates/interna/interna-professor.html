@@ -14,7 +14,7 @@
 
     <div class="container">
 
-        <h1>Lista de Alunos</h1>
+        <h1>Olá Professor <h1 class="nomeUsuario" th:text="${nomeUsuario}"></h1></h1>
         <form action="listar-alunos" method="post">
             <ul>
                 <li th:each="aluno : ${alunos}">
