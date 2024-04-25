@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xlmns:th="http://thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{css/loginCss/loginAP.css}">
+    <link rel="stylesheet" th:href="@{css/header.css}">
+</head>
+
+<body>
+
+    <div th:insert=" ~{fragmentos/header :: header}" class="pai-header"></div>
+
+    <div class="container">
+        
+        <form class="form-aluno" action="loginAluno" method="post">
+            
+            <div class="content">
+                <h3>Login Aluno</h3>
+                
+                <div class="container-inputs">
+                    <p class="mensagem" th:text="${mensagem}"></p>
+                    
+                    <input type="text" name="email" placeholder="E-mail">
+                    <input type="password" name="senha" placeholder="Sua Senha">
+
+                </div>
+                <button type="submit" name="submit">Enviar</button>
+            </div>
+        </form>
+
+        <hr>
+
+        <form class="form-professor" action="loginProfessor" method="post">
+            
+            <div class="content">
+                <h3>Login Professor</h3>
+                
+                <div class="container-inputs">
+                    <p class="mensagem" th:text="${mensagem}"></p>
+                    
+                    <input type="text" name="email" placeholder="E-mail">
+                    <input type="password" name="senha" placeholder="Sua Senha">
+
+                </div>
+                <button type="submit" name="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
