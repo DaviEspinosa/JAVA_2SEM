@@ -7,15 +7,19 @@ import web_app.gerenciamento_escola.Model.AdmModel;
 import web_app.gerenciamento_escola.Model.VerificacaoAdmModel;
 import web_app.gerenciamento_escola.Repository.AdmRepository;
 import web_app.gerenciamento_escola.Repository.VerificacaoRepository;
+
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+
 
 @Controller
 public class VerificaAdmController {
 
     // atributos
-    boolean acessoInternoNavegacaoAdm = false;
+    boolean acessoInterno = false;
 
 
     @Autowired
@@ -52,6 +56,19 @@ public class VerificaAdmController {
         return mv;
     }
 
+    // @GetMapping("/interna-adm")
+    // public String acessoPageInternaAdm() {
+    //     String vaiPara = "";
+    //     if (acessoInterno) {
+    //         vaiPara = "interna/interna-adm";
+    //     } else {
+    //         vaiPara = "login/login-adm";
+    //     }
+    //     return vaiPara;
+    // }
+
+
+
     @PostMapping("loginAdm")
     public ModelAndView loginAdm(AdmModel adm, RedirectAttributes attributes) {
         
@@ -62,6 +79,7 @@ public class VerificaAdmController {
         if (!adm.getEmail().isEmpty() && !adm.getSenha().isEmpty()) {
             if ( verificaEmail && verificaSenha) {
                 mv.setViewName("redirect:interna-adm");
+                acessoInterno = true;
             }
             else{
                 mv.setViewName("redirect:login-adm");
@@ -91,5 +109,8 @@ public class VerificaAdmController {
 
         return mv;
     }
+
+
+    
 }
     

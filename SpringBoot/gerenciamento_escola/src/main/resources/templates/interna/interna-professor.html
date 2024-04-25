@@ -15,12 +15,35 @@
     <div class="container">
 
         <h1>Olá Professor <h1 class="nomeUsuario" th:text="${nomeUsuario}"></h1></h1>
-        <form action="listar-alunos" method="post">
-            <ul>
-                <li th:each="aluno : ${alunos}">
-                    <span th:text="${aluno.nome}"></span> - <span th:text="${aluno.disciplina}"></span>
-                </li>
-            </ul>
+
+        <form action="pesquisarAlunos" method="post">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Nome do Aluno" name="nome" required>
+                <button class="btn btn-outline-secondary" type="submit">Pesquisar</button>
+            </div>
+        </form>
+        <!-- <form action="pesquisarAlunos" method="post">
+            <tbody>
+                <tr th:each="aluno : ${alunos}">
+                    <td th:text="${aluno.nome}"></td>
+                    <td th:text="${aluno.disciplina}"></td>
+                </tr>
+            </tbody> -->
+        </form>
+        <form action="" method="post">
+            <table class="table">
+                <tbody>
+                    <!-- Itera sobre a lista de alunos -->
+                    <tr th:each="aluno : ${alunos}">
+                        <td th:text="${aluno.ra}"></td>
+                        <td th:text="${aluno.aluno}"></td>
+                        <td>
+                            <input type="hidden" name="ra" th:value="${aluno.ra}" />
+                            <button type="submit" class="btn btn-block btn-register">Atribuir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </form>
     </div>
 </body>

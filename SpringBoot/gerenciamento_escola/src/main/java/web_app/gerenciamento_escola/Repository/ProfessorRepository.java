@@ -3,7 +3,6 @@ package web_app.gerenciamento_escola.Repository;
 import org.springframework.data.repository.CrudRepository;
 
 import web_app.gerenciamento_escola.Model.ProfessorModel;
-import java.util.List;
 
 
 public interface ProfessorRepository extends CrudRepository<ProfessorModel, String> {
@@ -16,6 +15,6 @@ public interface ProfessorRepository extends CrudRepository<ProfessorModel, Stri
     boolean existsBySenha(String senha);
     boolean existsByProfessor(String professor);
 
-    
+
 
 }

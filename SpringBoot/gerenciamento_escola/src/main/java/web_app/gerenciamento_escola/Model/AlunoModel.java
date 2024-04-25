@@ -23,30 +23,35 @@ public class AlunoModel implements Serializable{
     public void setRa(String ra) {
         this.ra = ra;
     }
+
     public String getAluno() {
         return aluno;
     }
     public void setAluno(String aluno) {
         this.aluno = aluno;
     }
+
     public String getDataNascimento() {
         return dataNascimento;
     }
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
+
     public String getDisciplina() {
         return disciplina;
     }
     public void setDisciplina(String disciplina) {
         this.disciplina = disciplina;
     }
+
     public String getTurma() {
         return turma;
     }
     public void setTurma(String turma) {
         this.turma = turma;
     }
+
     public String getSenha() {
         return senha;
     }
