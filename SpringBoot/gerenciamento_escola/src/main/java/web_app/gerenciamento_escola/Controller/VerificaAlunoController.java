@@ -1,5 +1,7 @@
 package web_app.gerenciamento_escola.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,19 +41,18 @@ public class VerificaAlunoController {
         return mv;
     }
 
-    // @PostMapping("listar-alunos")    
-    // public String listaAlunos(AlunoModel alunos, RedirectAttributes attributes) {
-    //     attributes.addFlashAttribute("alunos", alunoRepository.findAll());
-    //     return "lista-alunos";
-    // }
-
-    
-    @GetMapping("pesquisarAlunos")
-    public String pesquisarAlunos(@RequestParam String alunos, Model model) {
-        // Realiza a pesquisa de alunos por nome
-        Iterable<AlunoModel> aluno = alunoRepository.findByAlunoContaining(alunos);
-        model.addAttribute("alunos", aluno);
+    @GetMapping("/interna-professor")    
+    public String listaAlunos(Model model) {
+        model.addAttribute("alunos", alunoRepository.findAll());
         return "interna/interna-professor";
     }
+
     
+    // @GetMapping("pesquisarAlunos")
+    // public String pesquisarAlunos(@RequestParam String alunos, Model model) {
+    //     // Realiza a pesquisa de alunos por nome
+    //     List<AlunoModel> alunoPes = alunoRepository.findByAlunoContaining(alunos);
+    //     model.addAttribute("alunosPes", alunoPes);
+    //     return "interna/interna-professor";
+    // }
 }

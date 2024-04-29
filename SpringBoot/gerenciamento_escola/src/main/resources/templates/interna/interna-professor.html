@@ -14,7 +14,8 @@
 
     <div class="container">
 
-        <h1>Olá Professor <h1 class="nomeUsuario" th:text="${nomeUsuario}"></h1></h1>
+        <h1>Olá Professor <h1 class="nomeUsuario" th:text="${nomeUsuario}"></h1>
+        </h1>
 
         <form action="pesquisarAlunos" method="post">
             <div class="input-group mb-3">
@@ -30,21 +31,18 @@
                 </tr>
             </tbody> -->
         </form>
-        <form action="" method="post">
-            <table class="table">
-                <tbody>
-                    <!-- Itera sobre a lista de alunos -->
-                    <tr th:each="aluno : ${alunos}">
-                        <td th:text="${aluno.ra}"></td>
-                        <td th:text="${aluno.aluno}"></td>
-                        <td>
-                            <input type="hidden" name="ra" th:value="${aluno.ra}" />
-                            <button type="submit" class="btn btn-block btn-register">Atribuir</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </form>
+        <table class="table">
+            <tr>
+                <th>RA do Aluno |</th>
+                <th>Nome do Aluno</th>
+            </tr>
+            <!-- Itera sobre a lista de alunos -->
+            <tr th:each="aluno : ${alunos}">
+                <td><span th:text="${aluno.ra}"></span></td>
+                <td><span th:text="${aluno.aluno}"></span></td>
+            </tr>
+        </table>
+
     </div>
 </body>
 
