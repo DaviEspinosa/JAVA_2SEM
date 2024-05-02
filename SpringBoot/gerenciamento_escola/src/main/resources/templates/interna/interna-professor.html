@@ -17,29 +17,27 @@
         <h1>Olá Professor <h1 class="nomeUsuario" th:text="${nomeUsuario}"></h1>
         </h1>
 
-        <form action="pesquisarAlunos" method="post">
+        <form action="pesquisarAluno" method="get">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Nome do Aluno" name="nome" required>
-                <button class="btn btn-outline-secondary" type="submit">Pesquisar</button>
+                <label for="disciplina">Nome da Disciplina:</label>
+                <input type="text" id="disciplina" name="disciplina">
+                <button type="submit">Pesquisar</button>
             </div>
         </form>
-        <!-- <form action="pesquisarAlunos" method="post">
-            <tbody>
-                <tr th:each="aluno : ${alunos}">
-                    <td th:text="${aluno.nome}"></td>
-                    <td th:text="${aluno.disciplina}"></td>
-                </tr>
-            </tbody> -->
-        </form>
+
         <table class="table">
-            <tr>
-                <th>RA do Aluno |</th>
-                <th>Nome do Aluno</th>
+            <tr class="title">
+                <th><span>RA do Aluno</span></th>
+                <th><span>Nome do Aluno</span></th>
+                <th><span>Disciplina</span></th>
+                <th><span>Turma</span></th>
             </tr>
             <!-- Itera sobre a lista de alunos -->
             <tr th:each="aluno : ${alunos}">
                 <td><span th:text="${aluno.ra}"></span></td>
                 <td><span th:text="${aluno.aluno}"></span></td>
+                <td><span th:text="${aluno.disciplina}"></span></td>
+                <td><span th:text="${aluno.turma}"></span></td>
             </tr>
         </table>
 

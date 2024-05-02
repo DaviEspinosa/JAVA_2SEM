@@ -20,3 +20,15 @@ html, body{
 .nomeUsuario{
     color: black;
 }
+.table{
+    margin-top: 30px;
+    width: 60%;
+    background-color: rgb(243, 243, 243);
+    box-shadow: 8px 10px 19px -11px #028700
+}
+.table .title{
+    background-color: #00189e96;
+}
+.table tr th span{
+    float: left;
+}

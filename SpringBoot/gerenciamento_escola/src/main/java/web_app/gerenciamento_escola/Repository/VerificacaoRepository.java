@@ -14,6 +14,7 @@ public interface VerificacaoRepository extends CrudRepository<VerificacaoAdmMode
     VerificacaoAdmModel findByCpf(String cpf);
     VerificacaoAdmModel findBySenha(String senha);
 
+
     boolean existsByCpf(String cpf);
     boolean existsBySenha(String senha);
     //====================

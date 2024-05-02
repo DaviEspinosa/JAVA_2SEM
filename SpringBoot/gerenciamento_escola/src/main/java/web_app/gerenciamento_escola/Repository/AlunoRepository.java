@@ -19,7 +19,7 @@ public interface AlunoRepository extends CrudRepository<AlunoModel, String> {
     boolean existsByRa(String ra);
     boolean existsBySenha(String senha);
 
-       // Método para buscar alunos pelo nome (contendo uma parte do nome)
-    List<AlunoModel> findByAlunoContaining(String aluno);
+       // Método para buscar alunos pela disciplina (contendo uma parte do disciplina)
+    List<AlunoModel> findByDisciplinaContaining(String disciplina);
 
 }

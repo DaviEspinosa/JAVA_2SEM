@@ -13,6 +13,7 @@
     <div th:insert=" ~{fragmentos/header :: header}" class="pai-header"></div>
 
     <div class="container">
+        <span th:text="${mensagem}" action="preCad"></span>
         <form action="preCad" method="post">
             <div class="overlay"></div>
             <h3>Cadastro De Adm</h3>

@@ -22,11 +22,12 @@
 
                 <div class="container-inputs">
 
-                    <input type="text" name="nome" placeholder="Seu Nome">
-                    <input type="text" name="cpf" placeholder="Seu CPF">
-                    <input type="email" name="email" placeholder="Seu E-mail">
-                    <input type="password" placeholder="Sua Senha">
-                    <input type="password" name="senha" placeholder="Confirme sua Senha" style="width: 95%;">
+                    <input type="text" name="nome" placeholder="Seu Nome"required>
+                    <input type="text" name="cpf" placeholder="Seu CPF"required>
+                    <input type="email" name="email" placeholder="Seu E-mail"required>
+                    <input type="password" placeholder="Sua Senha"required>
+                    <input type="password" name="senha" placeholder="Confirme sua Senha" style="width: 95%;"required>
+                    <!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="A senha deve conter pelo menos um número, uma letra maiúscula e uma letra minúscula, e ter no mínimo 8 caracteres." -->
                     
                 </div>
                 <button type="submit" name="submit">Enviar</button>

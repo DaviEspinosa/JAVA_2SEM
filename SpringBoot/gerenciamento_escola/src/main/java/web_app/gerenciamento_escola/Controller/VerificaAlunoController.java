@@ -40,13 +40,28 @@ public class VerificaAlunoController {
 
         return mv;
     }
-
+    // @GetMapping("/pesquisarAluno")    
+    // public String listaAlunos(@RequestParam(name = "disciplina", required = false) String disciplina, Model model) {
+    //     model.addAttribute("alunos", alunoRepository.findAll());
+    //     if (disciplina != null && !disciplina.isEmpty()) {
+    //         model.addAttribute("alunos", alunoRepository.findByDisciplinaContaining(disciplina));
+    //     } else {
+    //         model.addAttribute("alunos", alunoRepository.findAll());
+    //     }
+    //     return "interna/interna-professor";
+    // }
     @GetMapping("/interna-professor")    
     public String listaAlunos(Model model) {
         model.addAttribute("alunos", alunoRepository.findAll());
         return "interna/interna-professor";
     }
 
+    // procurar alunos por disciplina
+    @GetMapping("/pesquisarAluno")
+    public String procurarPorDisciplina( @RequestParam("disciplina") String disciplina, Model model) {
+        model.addAttribute("alunos", alunoRepository.findByDisciplinaContaining(disciplina));
+        return "interna/interna-professor";
+    }
     
     // @GetMapping("pesquisarAlunos")
     // public String pesquisarAlunos(@RequestParam String alunos, Model model) {

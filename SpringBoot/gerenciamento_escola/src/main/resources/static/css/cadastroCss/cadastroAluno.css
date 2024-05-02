@@ -52,6 +52,11 @@ h3{
     border-bottom: solid 2px rgb(18, 128, 67);
 
 }
+.container-inputs select{
+    height: 40px;
+    width: 45%;
+    border-bottom: solid 2px rgb(71, 19, 119);
+}
 .container-inputs input:focus{
     outline: none;
     background-color: rgba(181, 255, 181, 0.527);

@@ -101,11 +101,31 @@ public class VerificaAdmController {
 
         ModelAndView mv = new ModelAndView("redirect:/pre-cadastro");
 
-            verificaAdmRepository.save(autadm);
-            String mensagem = "Cadastro realizado com sucesso";
-            System.out.println(mensagem);
-            attributes.addFlashAttribute(mensagem);
-            attributes.addFlashAttribute("classe", "Vermelho");
+        boolean verificaCpf = verificaAdmRepository.existsByCpf(autadm.getCpf()); 
+        
+        try {
+            if (autadm.getCpf().isEmpty() || autadm.getSenha().isEmpty()) {//||
+                attributes.addFlashAttribute("mensagem", "Campos não podem estar vazios!!!");
+            }
+            else{
+                if (verificaCpf) {            
+                    String mensagem = "Erro ao  cadastrar";
+                    System.out.println(mensagem);
+                    attributes.addFlashAttribute(mensagem);
+                    attributes.addFlashAttribute("mensagem" , "Este usuário já está cadastrado!!");
+                }
+                else{
+                    verificaAdmRepository.save(autadm);
+                    attributes.addFlashAttribute("mensagem", "Cadastro Realizado!!!");
+                    String mensagem = "Cadastro realizado com sucesso";
+                    System.out.println(mensagem);
+                    attributes.addFlashAttribute(mensagem);
+                }
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
 
         return mv;
     }

@@ -13,6 +13,7 @@ html, body{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     color: aliceblue;
 }
 form{
@@ -63,4 +64,11 @@ button{
     padding: 3px;
     border: solid 2px green;
     margin-bottom: 10px;
+}
+
+.container span{
+    color: rgb(192, 3, 3);
+    margin-bottom: 20px;
+    font-size: 15px;
+    font-weight: 800;
 }
